@@ -4,6 +4,8 @@ public class LegalPerson extends Person {
 
     private Integer numberOfEmployees;
 
+    public LegalPerson(){}
+
     public LegalPerson(String name, Double anualIncome, Integer numberOfEmployees) {
         super(name, anualIncome);
         this.numberOfEmployees = numberOfEmployees;

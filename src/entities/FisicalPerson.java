@@ -4,6 +4,8 @@ public class FisicalPerson extends Person {
 
     private Double healthcareExpenditures;
 
+    public FisicalPerson(){}
+
     public FisicalPerson(String name, Double anualIncome, Double healthcareExpenditures) {
         super(name, anualIncome);
         this.healthcareExpenditures = healthcareExpenditures;
@@ -19,8 +21,7 @@ public class FisicalPerson extends Person {
 
     @Override
     public double tax() {
-        double totalTax = 0.0;
-
+        double totalTax;
         if (getAnualIncome() > 20000.00) {
             if (getHealthcareExpenditures() > 0.0) {
                 totalTax = getAnualIncome() * 0.25 - getHealthcareExpenditures() * 0.5;
@@ -34,7 +35,6 @@ public class FisicalPerson extends Person {
                 totalTax = getAnualIncome() * 0.15;
             }
         }
-
         return totalTax;
     }
 }

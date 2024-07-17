@@ -20,7 +20,7 @@ public class Program {
         System.out.print("Enter the numbers of tax payers: ");
         int n = sc.nextInt();
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.printf("Tax payer #%d data: \n", i+1);
             System.out.print("Individual or company (i/c)? ");
             char ch = sc.next().charAt(0);
@@ -29,28 +29,24 @@ public class Program {
             String name = sc.nextLine();
             System.out.print("Anual Income: ");
             double anualIncome = sc.nextDouble();
-
             if (ch == 'i') {
                 System.out.print("Health expenditures: ");
                 double healthExpenditures = sc.nextDouble();
                 list.add(new FisicalPerson(name, anualIncome, healthExpenditures));
-
             } else {
                 System.out.print("Number of employees: ");
                 int numberOfEmployees = sc.nextInt();
                 list.add(new LegalPerson(name, anualIncome, numberOfEmployees));
             }
         }
-
         System.out.println();
         System.out.println("TAXES PAID: ");
-        double totalTaxes = 0.0;
+        double sum = 0.0;
         for (Person p : list) {
-            totalTaxes += p.tax();
+            sum += p.tax();
             System.out.println(p.getName() + ": $ " + String.format("%.2f", p.tax()));
         }
-
         System.out.println();
-        System.out.println("TOTAL TAXES: $ " + String.format("%.2f", totalTaxes));
+        System.out.println("TOTAL TAXES: $ " + String.format("%.2f", sum));
     }
 }
